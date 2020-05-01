@@ -25,6 +25,13 @@ class Uppercase(ATest):
         return ps.letters_uppercase >= self.count
 
 
+class Lowercase(Uppercase):
+    """ Test whether the password has >= `count` lowercase characters """
+
+    def test(self, ps):
+        return ps.letters_lowercase >= self.count
+
+
 class Numbers(Uppercase):
     """ Test whether the password has >= `count` numeric characters """
 

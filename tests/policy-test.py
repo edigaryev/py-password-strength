@@ -10,6 +10,7 @@ class PolicyTest(unittest.TestCase):
         policy = PasswordPolicy.from_names(
             length=8,
             uppercase=2,
+            lowercase=2,
             numbers=2,
             special=2,
             nonletters=2,
@@ -19,10 +20,12 @@ class PolicyTest(unittest.TestCase):
         )
 
         passwords = {
-            'qazwsx':           {'length', 'uppercase', 'numbers', 'special', 'nonletters', 'nonletterslc', 'entropybits', 'strength'},
-            'qazwsxrfv':        {          'uppercase', 'numbers', 'special', 'nonletters', 'nonletterslc', 'entropybits', 'strength'},
-            'qazwsxrfvTG':      {                       'numbers', 'special', 'nonletters',                                          },
-            'qazwsxrfvTG94':    {                                  'special',                                                        },
+            'QAZWSX':           {'length',              'lowercase', 'numbers', 'special', 'nonletters',                 'entropybits', 'strength'},
+            'QAZWSx':           {'length',              'lowercase', 'numbers', 'special', 'nonletters',                 'entropybits', 'strength'},
+            'qazwsx':           {'length', 'uppercase',              'numbers', 'special', 'nonletters', 'nonletterslc', 'entropybits', 'strength'},
+            'qazwsxrfv':        {          'uppercase',              'numbers', 'special', 'nonletters', 'nonletterslc', 'entropybits', 'strength'},
+            'qazwsxrfvTG':      {                                    'numbers', 'special', 'nonletters',                                          },
+            'qazwsxrfvTG94':    {                                               'special',                                                        },
             'qazwsxrfvTG94@$':  set(),
         }
 
